@@ -5,12 +5,19 @@ import { chessClockButtonStyles as styles } from './ChessClockButtonStyles';
 
 type ChessClockButtonProps = {
     time: string;
+    reversed?: boolean;
     onPress: () => void;
 }
 
-export const ChessClockButton: FC<ChessClockButtonProps> = ({ time, onPress }) => {
+export const ChessClockButton: FC<ChessClockButtonProps> = ({ time, reversed, onPress }) => {
     return (
-        <Pressable onPress={onPress} style={styles.chessClockButton}>
+        <Pressable 
+            onPress={onPress} 
+            style={{
+                ...styles.chessClockButton,
+                transform: [{ rotate: reversed ? '180deg' : '0deg' }]
+            }}
+        >
             <Text style={styles.buttonText}>{time}</Text>
         </Pressable>
     );

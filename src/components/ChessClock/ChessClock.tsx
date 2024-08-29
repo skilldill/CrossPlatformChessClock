@@ -40,9 +40,12 @@ export const ChessClock = () => {
     return (
         <View style={styles.container}>
             <View style={styles.buttonBlock}>
-                <ChessClockButton time={`${firstTimerSeconds}`} onPress={() => setCurrenTimer('second')} />
+                <ChessClockButton reversed time={`${firstTimerSeconds}`} onPress={() => setCurrenTimer('second')} />
             </View>
-            <Button title="restart" onPress={restartTimers} />
+            <View style={styles.controls}>
+                <Button title="restart" onPress={restartTimers} />
+                <Button color="red" title="stop" onPress={stop} />
+            </View>
             <View style={styles.buttonBlock}>
                 <ChessClockButton time={`${secondTimerSeconds}`} onPress={() => setCurrenTimer('first')} />
             </View>
